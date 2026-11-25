@@ -1,7 +1,11 @@
-# Architecture of a Magnum-style utility mod
+# How a utility client fits together
 
-Paths are relative to `src/main/java/me/shae/` in `~/git/magnum`. Verify
-against the project when it exists, since it evolves quickly.
+A description of the framework pattern, using the reference implementation
+(`~/git/magnum`, package `me.shae`, main class `Mhack`) for concrete names.
+Another client will use its own names for the same roles, so map them: "main
+class" means that client's `ModInitializer`, "module manager" its registry of
+features, and so on. Verify against the actual project before relying on a
+detail.
 
 ## Contents
 - Package map

@@ -1,9 +1,11 @@
 # Recipes
 
-Checklists for the common changes. Skeletons are shaped after Magnum's
-existing code (`Sprint`, `Zoom`, `Break Highlight`, `FPS`, `Toggle`).
-Confirm class names and constructor signatures against the project, which
-changes.
+Checklists for the common changes in any client built on this framework.
+Skeletons use generic names (`ExampleModule`, the module/event/command base
+classes). Substitute the client's own class names, package layout, and
+constructor signatures, and copy the closest existing feature as a model (in
+the reference client `~/git/magnum`: `Sprint`, `Zoom`, `Break Highlight`,
+`FPS`, `Toggle`).
 
 ## Contents
 - New module
@@ -154,7 +156,7 @@ and return `0` after sending an error.
 3. If a mixin is needed, follow `fabric-mixin`: the smallest injection that
    works, a `mymod`-prefixed handler, registered in the right mixin config
    list (`client` for client-only classes). The body only does
-   `Mhack.EVENT_MANAGER.post(new XEvent(...))` and, for cancellable events,
+   `<Client>.EVENT_MANAGER.post(new XEvent(...))` and, for cancellable events,
    reads the flag back (`ci.cancel()` or a return value).
 4. Subscribe from modules with `@Subscriber Listener<XEvent>`.
 5. Verify the hook fires once per occurrence, including when no module is
@@ -177,9 +179,9 @@ When two or more modules need the same capability or the same settings
 ## Changelog entry
 
 For each user-visible change, update both files with the next release `id`
-(or the unreleased/current one):
+(or the unreleased/current one), if the client keeps a changelog:
 
-- `src/main/resources/assets/mhack/changelog.json`: entries typed `new`,
+- `src/main/resources/assets/<modid>/changelog.json`: entries typed `new`,
   `changed` or `removed`. Entries about one module need its exact name as
   `module`; entries about one setting also need the exact `setting` name.
   These drive the in-game `+` (new) and `*` (changed) markers, so a typo means
