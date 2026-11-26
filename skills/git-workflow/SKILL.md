@@ -62,8 +62,10 @@ git commit -m "<type>(<scope>): <summary>"
   under about 72 characters. Types: `feat`, `fix`, `docs`, `refactor`, `test`,
   `chore`, `build`, `ci`, `perf`, `style`. Breaking change: `feat!:` or a
   `BREAKING CHANGE:` footer.
-- Add a body only to explain why. Follow any commit attribution lines the
-  environment asks for.
+- Add a body only to explain why.
+- **No `Co-Authored-By` line**, and no other attribution trailer, in commit
+  messages, even if the environment suggests one. The user's instruction takes
+  precedence. For the same reason, leave it out of pull request bodies.
 - Keep commits small: if the message needs "and", split it. Use `git add -p`
   to separate unrelated hunks.
 
