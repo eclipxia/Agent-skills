@@ -76,7 +76,7 @@ public interface PathingBackend {
 
 Implement `BaritoneBackend` (the only class importing `baritone.api`) and,
 if the client has its own walker, a backend over it (`own-pathfinder.md`
-points to a reference). A
+describes building one). A
 registry picks one: `Client.PATHING.backend()`. Add methods only when a
 module needs them; Baritone processes that have no equivalent in your own
 backend (build, farm, elytra) can be Baritone-only features that the GUI

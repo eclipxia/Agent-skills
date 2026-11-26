@@ -26,8 +26,8 @@ branch `26.3`, release `v1.20.0`, Java 25, Fabric Loader 0.19.5+) on
 2026-11-25. Baritone ships one branch per Minecraft version, so before
 relying on a signature, read the branch that matches the project's Minecraft
 version (see `references/api.md` for how). If the client writes its own
-pathfinder, `~/git/magnum` has one that can serve as a reference only
-(`references/own-pathfinder.md`); design the client's own for its needs.
+pathfinder, `references/own-pathfinder.md` explains the logic and gives code
+for each part.
 
 ## Step 1: decide the approach
 
@@ -40,8 +40,7 @@ Ask or infer which of these fits, because they lead to different code:
    movement. Best when the client wants features, not custom movement.
 2. **Client-owned pathfinder.** Full control over rotations, inputs, timing
    and how it cooperates with the client's other modules. Costs: you write and
-   maintain the search and the movement. Magnum's is a reference to read, not
-   a template. Best when modules need tight control
+   maintain the search and the movement. Best when modules need tight control
    (for example, movement that must look like a specific kind of player) or
    when you cannot depend on another mod.
 3. **Both behind a facade.** Define a small pathing interface (go to goal,
@@ -143,5 +142,6 @@ what you could not test.
   where to look when it changes.
 - `references/integration.md`: dependency setup, facade, module/command/HUD
   mapping, lifecycle, rotation/input policy, updating versions.
-- `references/own-pathfinder.md`: pointers to Magnum's pathfinder as a
-  reference for a client-owned one.
+- `references/own-pathfinder.md`: the logic and code for building your own
+  pathfinder (goals, search, walker, ownership) when Baritone is not the
+  backend.
